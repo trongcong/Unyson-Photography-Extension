@@ -1,0 +1,1 @@
+jQuery('#fw-option-photography-gallery').closest('.postbox').addClass('photography-gallery-postbox');
