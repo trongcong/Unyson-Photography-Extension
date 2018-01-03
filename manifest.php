@@ -6,7 +6,7 @@ $manifest = array();
 
 $manifest['name']        = __( 'Photography', 'yolo' );
 $manifest['description'] = __( 'This extension adds a fully fledged Photography module to your theme.  ', 'yolo' );
-$manifest['version']     = '1.0.0';
+$manifest['version']     = '1.0.1';
 $manifest['display']     = true;
 $manifest['standalone']  = true;
 $manifest['github_repo'] = 'https://github.com/trongcong/Unyson-Photography-Extension';
