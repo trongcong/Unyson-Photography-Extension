@@ -63,7 +63,7 @@ function _filter_fw_ext_photography_template_include( $template ) {
 
 add_filter( 'template_include', '_filter_fw_ext_photography_template_include' );
 
-function registerOptions( $options, $post_type ) {
+function _filter_fw_ext_register_options( $options, $post_type ) {
 	$photography = fw()->extensions->get( 'photography' );
 	if ( $post_type == 'yolo-photography' ) {
 		return $photography->get_post_options( 'photography' );
@@ -72,4 +72,4 @@ function registerOptions( $options, $post_type ) {
 	return $options;
 }
 
-add_filter( 'fw_post_options', 'registerOptions', 10, 2 );
+add_filter( 'fw_post_options', '_filter_fw_ext_register_options', 10, 2 );
