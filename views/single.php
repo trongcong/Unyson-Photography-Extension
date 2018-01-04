@@ -16,7 +16,7 @@ $nextPost = get_next_post();
 ?>
     <section class="bt-main-row <?php yolo_get_content_class( 'main', $yolo_sidebar_position ); ?>" role="main" itemprop="mainEntity" itemscope="itemscope" itemtype="http://schema.org/Blog">
     <div class="photography-wrap">
-         
+
         <div class="photography-carousel"> 
             <div class="owl-carousel" data-bears-owl-carousel="">
                 <?php
@@ -25,6 +25,8 @@ $nextPost = get_next_post();
 	                foreach ( $thumbnails as $thumbnail ) :
 		                echo '<div class="photo-inner" style="background-image: url(' . $thumbnail['url'] . ');"></div>';
 	                endforeach;
+                else:
+                    echo '<div class="photo-inner" style="background-image: url(' . get_the_post_thumbnail_url(get_the_ID(), 'full' ) . ');"></div>';
                 endif;
                 ?>
             </div>
@@ -32,7 +34,7 @@ $nextPost = get_next_post();
 
         <div class="container">
             <div class="row">
-                <div class="bt-section-space bt-content-area <?php yolo_get_content_class( 'content', $yolo_sidebar_position ); ?>">
+                <div class="bt-content-area <?php yolo_get_content_class( 'content', $yolo_sidebar_position ); ?>">
                     <div class="bt-col-inner">
                         <?php while ( have_posts() ) : the_post();
 	                        ?>
