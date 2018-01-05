@@ -4,8 +4,8 @@
 
 $manifest = array();
 
-$manifest['name']        = __( 'Photography', 'yolo' );
-$manifest['description'] = __( 'This extension adds a fully fledged Photography module to your theme.  ', 'yolo' );
+$manifest['name']        = __( 'Photography', 'fw' );
+$manifest['description'] = __( 'This extension adds a fully fledged Photography module to your theme.  ', 'fw' );
 $manifest['version']     = '1.0.1';
 $manifest['display']     = true;
 $manifest['standalone']  = true;
@@ -15,3 +15,11 @@ $manifest['author']     = 'Trong Cong';
 $manifest['author_uri'] = 'http://2dev4u.com/';
 
 $manifest['github_update'] = 'trongcong/Unyson-Photography-Extension';
+$manifest['requirements'] = array(
+    'wordpress' => array(
+        'min_version' => '4.8', 
+    ),
+    'framework' => array(
+        'min_version' => '2.7', 
+    ) 
+);

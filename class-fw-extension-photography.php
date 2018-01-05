@@ -83,12 +83,12 @@ class FW_Extension_Photography extends FW_Extension {
 	 * @internal
 	 **/
 	public function _action_add_permalink_in_settings() {
-		add_settings_field( 'fw_ext_photography_photo_slug', __( 'Photo base', 'yolo' ), array(
+		add_settings_field( 'fw_ext_photography_photo_slug', __( 'Photo base', 'fw' ), array(
 			$this,
 			'_photo_slug_input'
 		), 'permalink', 'optional' );
 
-		add_settings_field( 'fw_ext_photography_photography_slug', __( 'Photography category base', 'yolo' ), array(
+		add_settings_field( 'fw_ext_photography_photography_slug', __( 'Photography category base', 'fw' ), array(
 			$this,
 			'_photography_slug_input'
 		), 'permalink', 'optional' );
@@ -151,28 +151,28 @@ class FW_Extension_Photography extends FW_Extension {
 	public function _action_register_post_type() {
 
 		$post_names = apply_filters( 'fw_ext_photos_post_type_name', array(
-			'singular' => __( 'Photo', 'yolo' ),
-			'plural'   => __( 'Photos', 'yolo' )
+			'singular' => __( 'Photo', 'fw' ),
+			'plural'   => __( 'Photos', 'fw' )
 		) );
 
 		register_post_type( $this->post_type, array(
 			'labels'             => array(
-				'name'               => $post_names['plural'], //__( 'Photography', 'yolo' ),
-				'singular_name'      => $post_names['singular'], //__( 'Photography photo', 'yolo' ),
-				'add_new'            => __( 'Add New', 'yolo' ),
-				'add_new_item'       => sprintf( __( 'Add New %s', 'yolo' ), $post_names['singular'] ),
-				'edit'               => __( 'Edit', 'yolo' ),
-				'edit_item'          => sprintf( __( 'Edit %s', 'yolo' ), $post_names['singular'] ),
-				'new_item'           => sprintf( __( 'New %s', 'yolo' ), $post_names['singular'] ),
-				'all_items'          => sprintf( __( 'All %s', 'yolo' ), $post_names['plural'] ),
-				'view'               => sprintf( __( 'View %s', 'yolo' ), $post_names['singular'] ),
-				'view_item'          => sprintf( __( 'View %s', 'yolo' ), $post_names['singular'] ),
-				'search_items'       => sprintf( __( 'Search %s', 'yolo' ), $post_names['plural'] ),
-				'not_found'          => sprintf( __( 'No %s Found', 'yolo' ), $post_names['plural'] ),
-				'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'yolo' ), $post_names['plural'] ),
+				'name'               => $post_names['plural'], //__( 'Photography', 'fw' ),
+				'singular_name'      => $post_names['singular'], //__( 'Photography photo', 'fw' ),
+				'add_new'            => __( 'Add New', 'fw' ),
+				'add_new_item'       => sprintf( __( 'Add New %s', 'fw' ), $post_names['singular'] ),
+				'edit'               => __( 'Edit', 'fw' ),
+				'edit_item'          => sprintf( __( 'Edit %s', 'fw' ), $post_names['singular'] ),
+				'new_item'           => sprintf( __( 'New %s', 'fw' ), $post_names['singular'] ),
+				'all_items'          => sprintf( __( 'All %s', 'fw' ), $post_names['plural'] ),
+				'view'               => sprintf( __( 'View %s', 'fw' ), $post_names['singular'] ),
+				'view_item'          => sprintf( __( 'View %s', 'fw' ), $post_names['singular'] ),
+				'search_items'       => sprintf( __( 'Search %s', 'fw' ), $post_names['plural'] ),
+				'not_found'          => sprintf( __( 'No %s Found', 'fw' ), $post_names['plural'] ),
+				'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'fw' ), $post_names['plural'] ),
 				'parent_item_colon'  => '' /* text for parent types */
 			),
-			'description'        => __( 'Create a photography item', 'yolo' ),
+			'description'        => __( 'Create a photography item', 'fw' ),
 			'public'             => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
@@ -219,22 +219,22 @@ class FW_Extension_Photography extends FW_Extension {
 	public function _action_register_taxonomy() {
 
 		$category_names = apply_filters( 'fw_ext_photography_category_name', array(
-			'singular' => __( 'Category', 'yolo' ),
-			'plural'   => __( 'Categories', 'yolo' )
+			'singular' => __( 'Category', 'fw' ),
+			'plural'   => __( 'Categories', 'fw' )
 		) );
 
 		register_taxonomy( $this->taxonomy_name, $this->post_type, array(
 			'labels'            => array(
-				'name'              => sprintf( _x( 'Photography %s', 'taxonomy general name', 'yolo' ), $category_names['plural'] ),
-				'singular_name'     => sprintf( _x( 'Photography %s', 'taxonomy singular name', 'yolo' ), $category_names['singular'] ),
-				'search_items'      => sprintf( __( 'Search %s', 'yolo' ), $category_names['plural'] ),
-				'all_items'         => sprintf( __( 'All %s', 'yolo' ), $category_names['plural'] ),
-				'parent_item'       => sprintf( __( 'Parent %s', 'yolo' ), $category_names['singular'] ),
-				'parent_item_colon' => sprintf( __( 'Parent %s:', 'yolo' ), $category_names['singular'] ),
-				'edit_item'         => sprintf( __( 'Edit %s', 'yolo' ), $category_names['singular'] ),
-				'update_item'       => sprintf( __( 'Update %s', 'yolo' ), $category_names['singular'] ),
-				'add_new_item'      => sprintf( __( 'Add New %s', 'yolo' ), $category_names['singular'] ),
-				'new_item_name'     => sprintf( __( 'New %s Name', 'yolo' ), $category_names['singular'] ),
+				'name'              => sprintf( _x( 'Photography %s', 'taxonomy general name', 'fw' ), $category_names['plural'] ),
+				'singular_name'     => sprintf( _x( 'Photography %s', 'taxonomy singular name', 'fw' ), $category_names['singular'] ),
+				'search_items'      => sprintf( __( 'Search %s', 'fw' ), $category_names['plural'] ),
+				'all_items'         => sprintf( __( 'All %s', 'fw' ), $category_names['plural'] ),
+				'parent_item'       => sprintf( __( 'Parent %s', 'fw' ), $category_names['singular'] ),
+				'parent_item_colon' => sprintf( __( 'Parent %s:', 'fw' ), $category_names['singular'] ),
+				'edit_item'         => sprintf( __( 'Edit %s', 'fw' ), $category_names['singular'] ),
+				'update_item'       => sprintf( __( 'Update %s', 'fw' ), $category_names['singular'] ),
+				'add_new_item'      => sprintf( __( 'Add New %s', 'fw' ), $category_names['singular'] ),
+				'new_item_name'     => sprintf( __( 'New %s Name', 'fw' ), $category_names['singular'] ),
 				'menu_name'         => $category_names['plural'],
 			),
 			'public'            => true,
@@ -251,8 +251,8 @@ class FW_Extension_Photography extends FW_Extension {
 
 		if ( apply_filters( 'fw:ext:photography:enable-tags', false ) ) {
 			$tag_names = apply_filters( 'fw_ext_photography_tag_name', array(
-				'singular' => __( 'Tag', 'yolo' ),
-				'plural'   => __( 'Tags', 'yolo' )
+				'singular' => __( 'Tag', 'fw' ),
+				'plural'   => __( 'Tags', 'fw' )
 			) );
 
 			register_taxonomy( $this->taxonomy_tag_name, $this->post_type, array(
@@ -260,18 +260,18 @@ class FW_Extension_Photography extends FW_Extension {
 				'labels'       => array(
 					'name'                       => $tag_names['plural'],
 					'singular_name'              => $tag_names['singular'],
-					'search_items'               => sprintf( __( 'Search %s', 'yolo' ), $tag_names['plural'] ),
-					'popular_items'              => sprintf( __( 'Popular %s', 'yolo' ), $tag_names['plural'] ),
-					'all_items'                  => sprintf( __( 'All %s', 'yolo' ), $tag_names['plural'] ),
+					'search_items'               => sprintf( __( 'Search %s', 'fw' ), $tag_names['plural'] ),
+					'popular_items'              => sprintf( __( 'Popular %s', 'fw' ), $tag_names['plural'] ),
+					'all_items'                  => sprintf( __( 'All %s', 'fw' ), $tag_names['plural'] ),
 					'parent_item'                => null,
 					'parent_item_colon'          => null,
-					'edit_item'                  => sprintf( __( 'Edit %s', 'yolo' ), $tag_names['singular'] ),
-					'update_item'                => sprintf( __( 'Update %s', 'yolo' ), $tag_names['singular'] ),
-					'add_new_item'               => sprintf( __( 'Add New %s', 'yolo' ), $tag_names['singular'] ),
-					'new_item_name'              => sprintf( __( 'New %s Name', 'yolo' ), $tag_names['singular'] ),
-					'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'yolo' ), strtolower( $tag_names['plural'] ) ),
-					'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'yolo' ), strtolower( $tag_names['plural'] ) ),
-					'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'yolo' ), strtolower( $tag_names['plural'] ) ),
+					'edit_item'                  => sprintf( __( 'Edit %s', 'fw' ), $tag_names['singular'] ),
+					'update_item'                => sprintf( __( 'Update %s', 'fw' ), $tag_names['singular'] ),
+					'add_new_item'               => sprintf( __( 'Add New %s', 'fw' ), $tag_names['singular'] ),
+					'new_item_name'              => sprintf( __( 'New %s Name', 'fw' ), $tag_names['singular'] ),
+					'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'fw' ), strtolower( $tag_names['plural'] ) ),
+					'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'fw' ), strtolower( $tag_names['plural'] ) ),
+					'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'fw' ), strtolower( $tag_names['plural'] ) ),
 				),
 				'public'       => true,
 				'show_ui'      => true,
@@ -296,7 +296,7 @@ class FW_Extension_Photography extends FW_Extension {
 			$options[] = array(
 				'general' => array(
 					'context' => 'side',
-					'title'   => __( 'Photo', 'yolo' ) . ' ' . __( 'Gallery', 'yolo' ),
+					'title'   => __( 'Photo', 'fw' ) . ' ' . __( 'Gallery', 'fw' ),
 					'type'    => 'box',
 					'options' => array(
 						'photography-gallery' => array(
@@ -304,8 +304,8 @@ class FW_Extension_Photography extends FW_Extension {
 							'type'  => 'multi-upload',
 							'desc'  => false,
 							'texts' => array(
-								'button_add'  => __( 'Set photo gallery', 'yolo' ),
-								'button_edit' => __( 'Edit photo gallery', 'yolo' )
+								'button_add'  => __( 'Set photo gallery', 'fw' ),
+								'button_edit' => __( 'Edit photo gallery', 'fw' )
 							)
 						)
 					)
@@ -324,7 +324,7 @@ class FW_Extension_Photography extends FW_Extension {
 
 		foreach ( $menu as $key => $menu_item ) {
 			if ( $menu_item[2] == 'edit.php?post_type=' . $this->post_type ) {
-				$menu[ $key ][0] = __( 'Photography', 'yolo' );
+				$menu[ $key ][0] = __( 'Photography', 'fw' );
 			}
 		}
 	}
@@ -335,7 +335,7 @@ class FW_Extension_Photography extends FW_Extension {
 	 */
 	public function _action_admin_featured_image_label() {
 		remove_meta_box( 'postimagediv', $this->post_type, 'side' );
-		add_meta_box( 'postimagediv', __( 'Cover Image', 'yolo' ), 'post_thumbnail_meta_box', $this->post_type, 'side' );
+		add_meta_box( 'postimagediv', __( 'Cover Image', 'fw' ), 'post_thumbnail_meta_box', $this->post_type, 'side' );
 	}
 
 	/**
@@ -349,7 +349,7 @@ class FW_Extension_Photography extends FW_Extension {
 		switch ( $column_name ) {
 			case 'image':
 				if ( get_the_post_thumbnail( intval( $id ) ) ) {
-					$value = '<a href="' . get_edit_post_link( $id, true ) . '" title="' . esc_attr( __( 'Edit this item', 'yolo' ) ) . '">' . wp_get_attachment_image( get_post_thumbnail_id( intval( $id ) ), array(
+					$value = '<a href="' . get_edit_post_link( $id, true ) . '" title="' . esc_attr( __( 'Edit this item', 'fw' ) ) . '">' . wp_get_attachment_image( get_post_thumbnail_id( intval( $id ) ), array(
 							150,
 							100
 						), true ) . '</a>';
@@ -411,7 +411,7 @@ class FW_Extension_Photography extends FW_Extension {
 		$terms = get_terms( $this->taxonomy_name );
 
 		if ( empty( $terms ) || is_wp_error( $terms ) ) {
-			echo '<select name="' . $this->get_name() . '-filter-by-photography-category"><option value="0">' . __( 'View all categories', 'yolo' ) . '</option></select>';
+			echo '<select name="' . $this->get_name() . '-filter-by-photography-category"><option value="0">' . __( 'View all categories', 'fw' ) . '</option></select>';
 
 			return;
 		}
@@ -423,7 +423,7 @@ class FW_Extension_Photography extends FW_Extension {
 			'selected'        => $id,
 			'name'            => $this->get_name() . '-filter-by-photography-category">',
 			'taxonomy'        => $this->taxonomy_name,
-			'show_option_all' => __( 'View all categories', 'yolo' ),
+			'show_option_all' => __( 'View all categories', 'fw' ),
 			'hide_empty'      => true,
 			'hierarchical'    => 1,
 			'show_count'      => 0,
@@ -443,7 +443,7 @@ class FW_Extension_Photography extends FW_Extension {
 	public function _filter_admin_manage_edit_columns( $columns ) {
 		$new_columns          = array();
 		$new_columns['cb']    = $columns['cb']; // checkboxes for all photos page
-		$new_columns['image'] = __( 'Cover Image', 'yolo' );
+		$new_columns['image'] = __( 'Cover Image', 'fw' );
 
 		return array_merge( $new_columns, $columns );
 	}
